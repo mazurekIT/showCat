@@ -12,4 +12,4 @@ public interface CatRepository extends JpaRepository<Cat, Long> {
 
     List<Cat> findCatsByBreed(Breed breed);
 
- }
+}

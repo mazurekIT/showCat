@@ -102,16 +102,4 @@ public class Cat {
         this.judgePointsMap = judgePointsMap;
     }
 
-
-    @Override
-    public String toString() {
-        return "Cat{" +
-                "id=" + id +
-                ", owner='" + owner + '\'' +
-                ", name='" + name + '\'' +
-                ", breed=" + breed +
-                ", tickets=" + tickets +
-                ", judgePointsMap=" + judgePointsMap +
-                '}';
-    }
 }

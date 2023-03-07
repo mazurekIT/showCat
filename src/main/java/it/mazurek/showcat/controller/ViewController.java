@@ -1,6 +1,5 @@
 package it.mazurek.showcat.controller;
 
-import it.mazurek.showcat.model.Cat;
 import it.mazurek.showcat.model.DTO.ResultDTO;
 import it.mazurek.showcat.model.DTO.ViewDTO;
 import it.mazurek.showcat.service.ViewService;
@@ -32,7 +31,7 @@ public class ViewController {
             @PathVariable Long catId,
             @PathVariable Long ticketId
     ) {
-            viewService.peopleVoteAtCat(ticketId, catId);
+        viewService.peopleVoteAtCat(ticketId, catId);
     }
 
     @PatchMapping("/{catId}/{judgeId}/vote/{points}")
