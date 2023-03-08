@@ -4,6 +4,8 @@ import it.mazurek.showcat.model.Breed;
 import it.mazurek.showcat.model.Cat;
 import it.mazurek.showcat.repository.CatRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -26,7 +28,7 @@ public class CatService {
         return catRepository.findById(id);
     }
 
-    @Transactional
+    @Transactional(isolation = Isolation.READ_COMMITTED,propagation = Propagation.REQUIRED)
     public Cat save(Cat cat) {
         return catRepository.save(cat);
     }
