@@ -3,8 +3,6 @@ package it.mazurek.showcat.controller;
 import it.mazurek.showcat.model.DTO.ResultDTO;
 import it.mazurek.showcat.model.DTO.ViewDTO;
 import it.mazurek.showcat.service.ViewService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Max;
@@ -21,12 +19,11 @@ public class ViewController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<ViewDTO>> getCats() {
-        return ResponseEntity.ok(viewService.getAllCatsGroupByBreed());
+    public List<ViewDTO> getCats() {
+        return viewService.getAllCatsGroupByBreed();
     }
 
     @PatchMapping("/{catId}/{ticketId}/vote")
-    @ResponseStatus(HttpStatus.OK)
     public void ticketVote(
             @PathVariable Long catId,
             @PathVariable Long ticketId
@@ -35,7 +32,6 @@ public class ViewController {
     }
 
     @PatchMapping("/{catId}/{judgeId}/vote/{points}")
-    @ResponseStatus(HttpStatus.OK)
     public void ticketVote(
             @PathVariable Long catId,
             @PathVariable Long judgeId,
@@ -45,8 +41,8 @@ public class ViewController {
     }
 
     @GetMapping("/results")
-    public ResponseEntity<ResultDTO> getResults() {
-        return ResponseEntity.ok(viewService.getResults());
+    public ResultDTO getResults() {
+        return viewService.getResults();
     }
 
 }
