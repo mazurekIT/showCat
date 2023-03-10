@@ -21,4 +21,10 @@ public class ViewAdvice {
         return ex.getMessage();
     }
 
+    @ResponseBody
+    @ExceptionHandler(CatNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public String catNotFoundHandler(Exception ex) {
+        return ex.getMessage();
+    }
 }
